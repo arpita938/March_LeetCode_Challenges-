@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        if(nums.size()<3){//if the size of the array is less than 3 so we return 
+            return 0;
+        }
+        int count=0,diff;
+        for(int i=0;i<nums.size()-2;i++){//we write n-2 as bcz atleast we have 2 consecutive numbers
+            diff=nums[i+1]-nums[i];//calculate the difference betweeen 2 numbers
+            for(int j=i+2;j<nums.size();j++){
+                //if we found the same diff it means that the elements are in arithmetic sequence
+                if(nums[j]-nums[j-1]==diff){// this is done in  order to check if the diff for the next consecutive elemenets are also same \
+                    //increment th count
+                    count++;
+                }
+                else {
+                    break;
+                }
+            }
+                        
+        }
+        return count;
+    }
+};
